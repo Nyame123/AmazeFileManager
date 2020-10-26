@@ -657,5 +657,7 @@
     <string name="storage_sd_card">SD card</string>
     <string name="choose_folder">Choose This Folder</string>
     <string name="folder_go_up_one_level" translatable="false">..</string>
+    <string name="internal_storage">Internal Storage</string>
+    <string name="free_size">4.7GB free</string>
 </resources>
 

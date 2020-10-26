@@ -69,6 +69,7 @@ import com.amaze.filemanager.fragments.CloudSheetFragment;
 import com.amaze.filemanager.fragments.CloudSheetFragment.CloudConnectionCallbacks;
 import com.amaze.filemanager.fragments.CompressedExplorerFragment;
 import com.amaze.filemanager.fragments.FtpServerFragment;
+import com.amaze.filemanager.fragments.HomeFragment;
 import com.amaze.filemanager.fragments.MainFragment;
 import com.amaze.filemanager.fragments.ProcessViewerFragment;
 import com.amaze.filemanager.fragments.SearchWorkerFragment;
@@ -1039,7 +1040,8 @@ public class MainActivity extends PermissionsActivity
 
     switch (item.getItemId()) {
       case R.id.home:
-        if (ma != null) ma.home();
+       // if (ma != null) ma.home();
+        navigateToHome();
         break;
       case R.id.history:
         if (ma != null)
@@ -1166,6 +1168,13 @@ public class MainActivity extends PermissionsActivity
         break;
     }
     return super.onOptionsItemSelected(item);
+  }
+
+  public void navigateToHome() {
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+    transaction.replace(
+            R.id.content_frame, new HomeFragment(), KEY_INTENT_PROCESS_VIEWER);
+    transaction.commitAllowingStateLoss();
   }
 
   /*@Override

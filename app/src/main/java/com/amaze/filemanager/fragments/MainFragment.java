@@ -1353,7 +1353,8 @@ public class MainFragment extends Fragment implements BottomBarButtonPath {
 
   public void goBack() {
     if (openMode == OpenMode.CUSTOM) {
-      loadlist(home, false, OpenMode.FILE);
+      //loadlist(home, false, OpenMode.FILE);
+      getMainActivity().navigateToHome();
       return;
     }
 
@@ -1388,7 +1389,12 @@ public class MainFragment extends Fragment implements BottomBarButtonPath {
               || CURRENT_PATH.equals(CloudHandler.CLOUD_PREFIX_ONE_DRIVE + "/"))
             getMainActivity().exit();
           else if (FileUtils.canGoBack(getContext(), currentFile)) {
-            loadlist(currentFile.getParent(getContext()), true, openMode);
+            if (currentFile.getPath().equalsIgnoreCase(HomeFragment.INTERNAL_STORAGE_PATH)){
+              getMainActivity().navigateToHome();
+            }else {
+              loadlist(currentFile.getParent(getContext()), true, openMode);
+            }
+
           } else getMainActivity().exit();
         }
       } else {

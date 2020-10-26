@@ -117,5 +117,7 @@
     <color name="warningColor">#ffe082</color>
     <!-- Error error for InputTextLayout -->
     <color name="error_color_material">#F4511E</color>
+    <color name="dividerBlack">#1F000000</color>
+    <color name="black">#000000</color>
 
 </resources>
